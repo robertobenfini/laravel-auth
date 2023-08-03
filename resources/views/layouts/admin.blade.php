@@ -14,5 +14,23 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    
-</html>
+        <header>
+
+        </header>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <ul>
+                            <li class="nav-item">
+                                <a href="{{ Route('admin.projects.index') }}" class="nav-link">Projects</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-8">
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </html>
