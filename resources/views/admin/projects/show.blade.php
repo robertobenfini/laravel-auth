@@ -5,9 +5,18 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>{{ $project->title }}</h1>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h1>{{ $project->title }}</h1>
+                    </div>
+    
+                    <div>
+                        <a href="{{ route('admin.projects.index') }}" class="btn btn-sm btn-primary">Tutti i progetti</a>
+                    </div>
+                </div>
+
                 <p>
-                {{ $project->content }}
+                    {{ $project->content }}
                 </p>
             </div>
         </div>
