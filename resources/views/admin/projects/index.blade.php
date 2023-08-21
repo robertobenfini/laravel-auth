@@ -22,10 +22,10 @@
                                 <td>
                                     <a class="btn btn-info btn-sm" href="{{ route('admin.projects.show', $project->id) }}"><i class="fas fa-eye"></i></a>
                                     <a class="btn btn-warning btn-sm" href="{{ route('admin.projects.edit', $project->id) }}"><i class="fas fa-pen"></i></a>
-                                    <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project->id) }}" onsubmit="return confirm('Sei sicuro di voler cancellare questo progetto?')" method="POST">
+                                    <form class="d-inline-block delete-project-form" action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -37,4 +37,5 @@
             </div>
         </div>
     </div>
+    @include('admin.partials.modal_delete')
 @endsection
