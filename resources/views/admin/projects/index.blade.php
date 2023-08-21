@@ -20,9 +20,9 @@
                                 <td>{{ $project->title }}</td>
                                 <td>{{ $project->slug }}</td>
                                 <td>
-                                    <a class="btn btn-info btn-sm" href="#"><i class="fas fa-eye"></i></a>
+                                    <a class="btn btn-info btn-sm" href="{{ route('admin.projects.show', $project->id) }}"><i class="fas fa-eye"></i></a>
                                     <a class="btn btn-warning btn-sm" href="#"><i class="fas fa-pen"></i></a>
-                                    <form class="d-inline-block" action="#" onsubmit="return confirm('Sei sicuro di voler cancellare questo fumetto?')" method="POST">
+                                    <form class="d-inline-block" action="#" onsubmit="return confirm('Sei sicuro di voler cancellare?')" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
