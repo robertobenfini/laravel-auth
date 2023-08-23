@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
@@ -41,6 +42,12 @@ class ProjectController extends Controller
         $form_data = $request->all();
 
         $project = new Project();
+
+        if($request->hasFile('image')){
+            $path = Storage::put('project_image', $request->image);
+
+            $form_data['image'] = $path;
+        }
 
         $form_data['slug'] = $project->generateSlug($form_data['title']);
 
@@ -83,6 +90,15 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $form_data = $request->all();
+
+        if($request->hasFile('image')){
+            if($project->image){
+                Storage::delete($project->image);
+            }
+
+            $path = Storage::put('project_image', $request->image);
+            $form_data['image'] = $path;
+        }
 
         $form_data['slug'] = $project->generateSlug($form_data['title']);
 
