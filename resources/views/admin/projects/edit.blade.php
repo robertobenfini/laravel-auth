@@ -16,7 +16,7 @@
                 </div>
 
                 <div>
-                    <form action="{{ route('admin.projects.update', $project->id) }}" method="POST">
+                    <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group mt-4">
