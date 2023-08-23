@@ -21,8 +21,18 @@
                         @method('PUT')
                         <div class="form-group mt-4">
                             <label class="contol-lable">Titolo</label>
-                            <input class="form-control @error ('title')is-invalid" @enderror type="text" name="title" id="title" placeholder="Titolo" value="{{ old('title') ?? $project->title }}">
+                            <input class="form-control @error ('title')is-invalid @enderror" type="text" name="title" id="title" placeholder="Titolo" value="{{ old('title') ?? $project->title }}">
                             @error('title')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group mt-4">
+                        <div>
+                            <img src="{{ asset('storage/'.$project->image) }}" width="500px">
+                        </div>
+                            <label class="contol-lable">Immagine</label>
+                            <input type="file" class="form-control @error ('image') is-invalid @enderror" name="image" id="image">
+                            @error('image')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
