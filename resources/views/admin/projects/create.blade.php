@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group mt-4">
                             <label class="contol-lable">Immagine</label>
-                            <input type="file" class="form-control @error ('image')is-invalid" @enderror name="image" id="image">
+                            <input type="file" class="form-control @error ('image') is-invalid" @enderror name="image" id="image">
                             @error('image')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
